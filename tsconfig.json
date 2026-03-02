@@ -1,23 +1,33 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
+    /* Target & Environment */
+    "target": "ES2020",                      /* Best fit for SuiteScript 2.1 (ES6+) */
+    "module": "AMD",                         /* NetSuite uses AMD (define/require) */
+    "moduleResolution": "Node",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "lib": ["es7", "es2015.promise", "dom"],
-    "module": "amd",
-    "moduleResolution": "node",
-    "newLine": "LF",
-    "noImplicitUseStrict": true,
-    "noUnusedLocals": true,
-    "outDir": "./src/FileCabinet/SuiteScripts/netsuite-typescript-sdf",
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ESNext"],
+
+    /* Paths & Outputs */
+    "rootDir": "src/TypeScripts/engineering_template",
+    "outDir": "src/FileCabinet/SuiteScripts/engineering_template",
+    "baseUrl": ".",
     "paths": {
       "N": ["node_modules/@hitc/netsuite-types/N"],
       "N/*": ["node_modules/@hitc/netsuite-types/N/*"]
     },
-    "sourceMap": false,
-    "target": "es2020"
+
+    /* The "Rigor" Guardrails */
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    /* NetSuite Compatibility */
+    "skipLibCheck": true,
+    "noEmitOnError": true                    /* Don't generate JS if the TS has errors */
   },
-  "include": ["."],
-  "exclude": ["node_modules"]
+  "include": ["src/TypeScripts/engineering_template/**/*"],
+  "exclude": ["node_modules", "src/FileCabinet"]
 }

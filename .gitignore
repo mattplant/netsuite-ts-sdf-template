@@ -1,40 +1,69 @@
-# IDEs and editors
-.idea
-*.iml
-*.iws
-.project
-.classpath
-*.launch
-.settings
-*.sublime-workspace
-# .vscode
-
-# Dependency directories
-node_modules
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Packaged SuiteCloud projects
-build
-
-# misc
-.sass-cache
-
-# Optional npm cache directory
-.npm
-
-# System Files
+# --- System Files ---
 .DS_Store
 Thumbs.db
+*.log
+logs/
 
-# Output of 'npm pack'
-*.tgz
+# --- Project Infrastructure ---
+node_modules/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
 
-# Project config
+# --- Engineering NetSuite Drafts ---
+# We keep the template in the repo, but ignore your active draft
+commit-draft.md
+
+# --- TypeScript / Build Output ---
+# We ignore the transpiled JS in the FileCabinet because it's derived from TS.
+# This ensures your "Source of Truth" is always the TypeScript files.
+src/FileCabinet/SuiteScripts/engineering_template/**/*.js
+src/FileCabinet/SuiteScripts/engineering_template/**/*.js.map
+
+# --- IDEs and Editors ---
+# IntelliJ / WebStorm
+*.iml
+*.iws
+.idea/
+# Eclipse
+.project
+.classpath
+.settings/
+*.launch
+# VS Code / Sublime
+#.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# --- Dependency Directories ---
+node_modules/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# --- TypeScript & Build Artifacts ---
+*.tsbuildinfo
+build/
+# Ignore transpiled JS (Source of Truth remains TS)
+src/FileCabinet/SuiteScripts/engineering_template/**/*.js
+src/FileCabinet/SuiteScripts/engineering_template/**/*.js.map
+
+# --- NetSuite / SuiteCloud Specific ---
+# Project Config (If generated or env-specific)
 project.json
+# Auth & Security (CRITICAL)
+# Never commit your NetSuite credentials or local auth files.
+.suitecloud-tokens
+.suitecloud/
+project.json.local
+.netrc
+
+# --- Engineering NetSuite Drafts ---
+commit-draft.md
+
+# --- Testing ---
+coverage/

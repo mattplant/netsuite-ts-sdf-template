@@ -1,66 +1,106 @@
 # NetSuite TypeScript SDF Project Template
 
-For an example of this project template being used, see [SuiteTools](https://github.com/mattplant/SuiteTools).
+> **The modern foundation for high-integrity SuiteScript development.** This repository provides a pre-configured, professional-grade Developer Experience (DX) for NetSuite. It bridges the gap between traditional ERP scripting and modern software engineering by combining **TypeScript**, **SuiteCloud Development Framework (SDF)**, and automated **linting/formatting** into a seamless local workflow.
 
-## Requirements
+## 🚀 Key Features
 
-- Node - <https://nodejs.org/>
-- TypeScript - <https://www.typescriptlang.org/>
-- Oracle JDK version 17 (64 bit) - required for SuiteCloud SDK
-- SuiteCloud SDK - <https://github.com/oracle/netsuite-suitecloud-sdk>
-- "SuiteCloud Development Integration" (245955) bundle installed in NetSuite
+- **Compile-Time Safety:** Catch API errors and type mismatches in your IDE before they ever reach a NetSuite Sandbox.
+- **Automated DX:** Real-time linting (ESLint) and formatting (Prettier) on save, ensuring code consistency across teams.
+- **Infrastructure as Code (IaC):** Leverage SDF to manage your NetSuite objects (Custom Records, Fields, Scripts) via XML within your Git-based workflow.
+- **Modern SuiteScript:** Native support for SuiteScript 2.1 (ES6+) features.
 
-## Initial Setup
+**Example Implementation:** To see this template powering a production-grade React SPA within NetSuite, see [SuiteTools](https://github.com/mattplant/SuiteTools).
 
-These initial steps will only need to be done once.
+## 🛠️ Requirements
+
+To utilize this template, your local environment must meet the following enterprise standards:
+
+- **Node.js:** v22.x (LTS) or higher.
+- **Package Manager:** [Yarn Classic](https://classic.yarnpkg.com/en/docs/install) (v1.22.x) — *Ensures deterministic builds and optimized dependency management.*
+- **Java:** Oracle JDK 21 — *Required for the SuiteCloud SDK's underlying Java-based binary operations.*
+- **SuiteCloud CLI:** `@oracle/suitecloud-cli` (v3.x+) — *Recommended to be installed globally (`npm install -g @oracle/suitecloud-cli`).*
+- **NetSuite Account:** "SuiteCloud Development Integration" (245955) bundle installed in your target NetSuite environments.
+
+## 🏗️ Initial Setup
+
+These steps establish your local environment and authenticate your NetSuite connection.
 
 ### Core Configuration
 
-- clone the repo
-  - `git clone https://github.com/mattplant/netsuite-typescript-sdf.git`
-- enable linting
-  - `cd netsuite-typescript-sdf; npm install`
-- connect your NetSuite account
-  - `suitecloud account:setup`
+- **Clone the repository:**
 
-### VS Code Configuration (optional)
+  ```bash
+  git clone https://github.com/mattplant/netsuite-typescript-sdf.git
+  cd netsuite-typescript-sdf
+  ```
 
-- install VS Code extensions
-  - SuiteCloud Extension for Visual Studio Code - <https://marketplace.visualstudio.com/items?itemName=Oracle.suitecloud-vscode-extension>
-  - VS Code ESLint extension - <https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint>
-  - Prettier ESLint - <https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint>
-- allow VS Code to run tasks automatically so that TypeScript can automatically run in the background
-  - in command palette, select "Tasks: Manage Automatic Tasks in Folder" and then "Allow Automatic Tasks in Folder"
+- **Install dependencies & enable linting:**
 
-## Usage
+  ```bash
+  yarn install
+  ```
 
-Now in VS Code when you create your TypeScript files in the */src/TypeScripts/netsuite-typescript-sdf/ folder they will automatically be linted as you type and automatically formatted and code fixed upon saving. The corresponding JavaScript for NetSuite's API Version 2.1 (aka SuiteScript 2.1) will automatically be generated in the*/src/FileCabinet/SuiteScripts/netsuite-typescript-sdf/ folder ready for deployment to your NetSuite account.
+- **Connect your NetSuite account:**
 
-## Notes
+  ```bash
+  suitecloud account:setup
+  ```
 
-NetSuite customization development is now done with modern tools. You now have complete control over your development processes including using VS Code. Your NetSuite customizations (files, scripts and other custom objects) can be imported and exported between your NetSuite environments (production, sandbox, release preview, or development).
+### VS Code Configuration (Recommended)
 
-This template was initially built by Oracle's SuiteCloud SDK via `suitecloud project:create -i`.
+For the intended "Zero Friction" DX, install the following extensions:
 
-For NetSuite TypeScript support I leveraged <https://github.com/headintheclouddev/typings-suitescript-2.0>.
+- **[SuiteCloud Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Oracle.suitecloud-vscode-extension)** — Essential for SDF integration and account management.
+- **[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)** — Provides real-time feedback on code quality and standard violations.
+- **[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)** — Ensures consistent code style across the entire project.
 
-## macOS Tools (optional)
+**Enable Automatic Tasks:**
 
-Tools I used to fulfill the above requirements in macOS.
+To allow TypeScript to transpile in the background automatically upon folder entry:
 
-- Homebrew
-  - <https://brew.sh/>
-- Node
-  - `brew install node`
-- TypeScript
-  - `npm install -g typescript`
-- OpenJDK 17
-  - `brew install openjdk@17`
-- SuiteCloud SDK
-  - `npm install -g @oracle/suitecloud-cli`
-- VS Code (optional)
-  - `brew install --cask visual-studio-code`
-- Oracle's SuiteCloud extension for VS Code (optional)
-  - [SuiteCloud Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Oracle.suitecloud-vscode-extension)
-- Microsoft's ESLint extension for VS Code (optional)
-  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+1. Open the Command Palette (`Cmd+Shift+P` or `Ctrl+Shift+P`).
+2. Select **Tasks: Manage Automatic Tasks in Folder**.
+3. Choose **Allow Automatic Tasks in Folder**.
+
+## 💻 Usage & Workflow
+
+1. **Development:** Create your logic in `src/TypeScripts/`. The template's `tsconfig.json` is pre-configured to target SuiteScript 2.1 (ES6+) and includes the necessary type definitions for NetSuite's API.
+2. **Real-time Feedback:** The template automatically lints and formats your code as you work.
+3. **Transpilation:** TypeScript is converted to SuiteScript 2.1 (ES6+) in `src/FileCabinet/SuiteScripts/` via automated background tasks.
+4. **Deployment:** Use the SuiteCloud CLI or the VS Code sidebar to push to your NetSuite environment.
+
+   ```bash
+   suitecloud project:deploy
+   ```
+
+## 📝 Technical Notes
+
+This template was initially generated by Oracle's SuiteCloud SDK via `suitecloud project:create -i` and subsequently customized to create a zero-friction, professional-grade DX for SuiteScript development with TypeScript.
+
+## 🙌 Acknowledgments & Attribution
+
+A rising tide lifts all boats. This template would not be possible without the incredible, ongoing work of the broader NetSuite developer community. I am firmly standing on the shoulders of giants who paved the way for modern SuiteScript development.
+
+Special thanks and attribution to:
+
+- **Oracle NetSuite's SuiteCloud Team:** For the continued evolution of the SuiteCloud SDK, SDF CLI, and the VS Code extensions that make local SDLC possible.
+- **[Head in the Cloud Development](https://github.com/headintheclouddev):** For maintaining the `@hitc/netsuite-types` repository. Their work single-handedly made strict, compile-time type safety a reality for SuiteScript 2.x.
+
+## 👨‍💻 Author
+
+**Matt Plant** | *Senior NetSuite Software Engineer* *Bringing Software Engineering Rigor to the NetSuite Ecosystem.*
+
+- **GitHub:** [@mattplant](https://github.com/mattplant)
+- **Flagship Project:** [SuiteTools](https://github.com/mattplant/SuiteTools) (A React-based SPA built in TypeScript and deployed to NetSuite via SDF from a monorepo).
+
+## ⚖️ Legal Disclaimer
+
+This repository is a personal, open-source project and is **not** affiliated with, endorsed by, or sponsored by Oracle Corporation or NetSuite. "Oracle", "NetSuite", "SuiteScript", and "SuiteCloud" are registered trademarks of Oracle Corporation.
+
+The methodologies, architectural patterns, and code samples provided in this repository are for educational and demonstration purposes. Enterprise ERP environments are highly customized; therefore, you assume all risk associated with using this template. Always thoroughly test code and deployments in a NetSuite Sandbox environment prior to Production release.
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software and architectural patterns to improve your own NetSuite environments. See the [LICENSE](LICENSE) file for the full text.
