@@ -3,14 +3,14 @@
   "displayName": "NetSuite TypeScript SDF Project Template",
   "version": "2.0.0",
   "private": true,
-  "type": "module",
   "description": "The Engineering NetSuite template: A high-integrity foundation for TypeScript-based SuiteScript 2.1 development and deployment.",
   "keywords": [
     "netsuite",
     "sdf",
     "suitescript",
     "typescript",
-    "dx"
+    "dx",
+    "engineering"
   ],
   "author": {
     "name": "Matt Plant",
