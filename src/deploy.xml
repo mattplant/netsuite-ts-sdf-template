@@ -3,7 +3,7 @@
         <path>~/AccountConfiguration/*</path>
     </configuration>
     <files>
-        <path>~/FileCabinet/*</path>
+        <path>~/FileCabinet/SuiteScripts/idev-engineering-netsuite/*</path>
     </files>
     <objects>
         <path>~/Objects/*</path>

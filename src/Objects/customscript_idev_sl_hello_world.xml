@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suitelet scriptid="customscript_idev_sl_hello_world">
+  <description>IDEV Hello World Suitelet - demonstrates the TypeScript to SuiteScript workflow.</description>
+  <isinactive>F</isinactive>
+  <name>IDEV Hello World Suitelet</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/idev-engineering-netsuite/IDEV_SL_HelloWorld.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_idev_sl_hello_world">
+      <allemployees>T</allemployees>
+      <allroles>T</allroles>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>TESTING</status>
+      <title>IDEV Hello World Suitelet</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

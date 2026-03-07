@@ -62,6 +62,27 @@ To allow TypeScript to transpile in the background automatically upon folder ent
 2. Select **Tasks: Manage Automatic Tasks in Folder**.
 3. Choose **Allow Automatic Tasks in Folder**.
 
+## 📚 Example: Hello World Suitelet
+
+This template includes a working Hello World example.
+
+**Files:**
+
+- TypeScript Source: `/src/TypeScripts/idev-engineering-netsuite/IDEV_SL_HelloWorld.ts`
+- Compiled Output: `/src/FileCabinet/SuiteScripts/idev-engineering-netsuite/IDEV_SL_HelloWorld.js` (auto-generated)
+- Script Record: `/src/Objects/customscript_idev_sl_hello_world.xml` (includes deployment record)
+
+**To Test:**
+
+1. Deploy the template to your NetSuite environment: `yarn deploy`
+2. Navigate to the deployed Hello World Suitelet in your NetSuite environment:
+
+   ```text
+   https://<your-account-id>.app.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript_idev_sl_hello_world&deploy=customdeploy_idev_sl_hello_world
+   ```
+
+   Replace `<your-account-id>` with your NetSuite account ID.
+
 ## 💻 Usage & Workflow
 
 1. **Development:** Create your logic in `src/TypeScripts/`. The template's `tsconfig.json` is pre-configured to target SuiteScript 2.1 (ES6+) and includes the necessary type definitions for NetSuite's API.
@@ -70,7 +91,7 @@ To allow TypeScript to transpile in the background automatically upon folder ent
 4. **Deployment:** Use the SuiteCloud CLI or the VS Code sidebar to push to your NetSuite environment.
 
    ```bash
-   suitecloud project:deploy
+    yarn deploy
    ```
 
 ## 📝 Technical Notes

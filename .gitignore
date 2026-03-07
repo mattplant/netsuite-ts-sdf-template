@@ -18,9 +18,12 @@ commit-draft.md
 
 # --- TypeScript / Build Output ---
 # We ignore the transpiled JS in the FileCabinet because it's derived from TS.
-# This ensures your "Source of Truth" is always the TypeScript files.
-src/FileCabinet/SuiteScripts/engineering_template/**/*.js
-src/FileCabinet/SuiteScripts/engineering_template/**/*.js.map
+# The TypeScript files are the "Source of Truth".
+src/FileCabinet/SuiteScripts/**/*.js
+src/FileCabinet/SuiteScripts/**/*.js.map
+
+# --- AI Tools ---
+.claude/
 
 # --- IDEs and Editors ---
 # IntelliJ / WebStorm
@@ -49,8 +52,8 @@ node_modules/
 *.tsbuildinfo
 build/
 # Ignore transpiled JS (Source of Truth remains TS)
-src/FileCabinet/SuiteScripts/engineering_template/**/*.js
-src/FileCabinet/SuiteScripts/engineering_template/**/*.js.map
+src/FileCabinet/SuiteScripts/**/*.js
+src/FileCabinet/SuiteScripts/**/*.js.map
 
 # --- NetSuite / SuiteCloud Specific ---
 # Project Config (If generated or env-specific)

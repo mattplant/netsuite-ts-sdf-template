@@ -9,8 +9,8 @@
     "lib": ["ESNext"],
 
     /* Paths & Outputs */
-    "rootDir": "src/TypeScripts/engineering_template",
-    "outDir": "src/FileCabinet/SuiteScripts/engineering_template",
+    "rootDir": "src/TypeScripts/idev-engineering-netsuite",
+    "outDir": "src/FileCabinet/SuiteScripts/idev-engineering-netsuite",
     "baseUrl": ".",
     "paths": {
       "N": ["node_modules/@hitc/netsuite-types/N"],
@@ -28,6 +28,6 @@
     "skipLibCheck": true,
     "noEmitOnError": true                    /* Don't generate JS if the TS has errors */
   },
-  "include": ["src/TypeScripts/engineering_template/**/*"],
+  "include": ["src/TypeScripts/idev-engineering-netsuite/**/*"],
   "exclude": ["node_modules", "src/FileCabinet"]
 }
