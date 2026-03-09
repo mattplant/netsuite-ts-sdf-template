@@ -50,7 +50,7 @@ export const onRequest: EntryPoints.Suitelet.onRequest = (
       <hr style="border: none; border-top: 1px solid #ddd; margin: 24px 0;" />
       <p style="font-size: 13px; color: #888;">
         Built with the
-        <a href="https://github.com/mattplant/engineering-netsuite" target="_blank"
+        <a href="https://github.com/mattplant/engineering-netsuite" target="_blank" rel="noopener noreferrer"
            style="color: #2c5f8a;">Engineering NetSuite</a>
         methodology &mdash; modern software engineering rigor for NetSuite.
       </p>

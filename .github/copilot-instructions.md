@@ -34,21 +34,25 @@ are transpiled to AMD JavaScript that runs inside NetSuite.
 
 ```text
 src/
-  TypeScripts/engineering_template/              # TypeScript source (edit these)
-  FileCabinet/SuiteScripts/engineering_template/ # Transpiled JS output (do not edit)
-  Objects/                                       # SDF XML object definitions
-  AccountConfiguration/                          # SDF account config
-  FileCabinet/Templates/                         # Email/marketing templates
-  Translations/                                  # Localization files
-  deploy.xml                                     # SDF deployment manifest
-  manifest.xml                                   # SDF project manifest
-suitecloud.config.js                             # SDF CLI configuration
+  AccountConfiguration/                                # SDF account config
+  FileCabinet/Templates/                              # Email/marketing templates
+  FileCabinet/SuiteScripts/idev-engineering-netsuite/ # Transpiled JS output (do NOT edit!)
+  Objects/                                            # SDF XML object definitions
+  Translations/                                       # Localization files
+  TypeScripts/idev-engineering-netsuite/              # TypeScript source (edit these)
+  deploy.xml                                          # SDF deployment manifest
+  manifest.xml                                        # SDF project manifest
+LICENSE                                               # License file
+package.json                                          # Yarn configuration
+suitecloud.config.js                                   # SDF CLI configuration
+tsconfig.json                                          # TypeScript configuration
+yarn.lock                                             # Yarn lockfile
 ```
 
 ### TypeScript → NetSuite Pipeline
 
-1. Write SuiteScript in `src/TypeScripts/engineering_template/`
-2. `tsc` compiles to AMD modules in `src/FileCabinet/SuiteScripts/engineering_template/`
+1. Write SuiteScript in `src/TypeScripts/idev-engineering-netsuite/`
+2. `tsc` compiles to AMD modules in `src/FileCabinet/SuiteScripts/idev-engineering-netsuite/`
 3. `yarn deploy` pushes the FileCabinet and Objects to NetSuite
 
 ### Import Style
@@ -64,6 +68,22 @@ import { EntryPoints } from 'N/types';
 ---
 
 ## SuiteScript Conventions
+
+### File Naming Convention
+
+Files follow the pattern: `idev_[record]_[feature]_[type].ts`
+
+| Suffix | Script Type                       |
+| ------ | --------------------------------- |
+| `_ue`  | UserEvent                         |
+| `_mr`  | MapReduce                         |
+| `_sl`  | Suitelet                          |
+| `_cs`  | ClientScript                      |
+| `_sc`  | ScheduledScript                   |
+| `_rl`  | RESTlet                           |
+| `_lib` | Shared library / common utilities |
+
+Examples: `idev_invoice_sync_mr.ts`, `idev_utils_lib.ts`
 
 ### JSDoc Headers
 

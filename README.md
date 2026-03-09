@@ -30,8 +30,8 @@ These steps establish your local environment and authenticate your NetSuite conn
 - **Clone the repository:**
 
   ```bash
-  git clone https://github.com/mattplant/netsuite-typescript-sdf.git
-  cd netsuite-typescript-sdf
+  git clone https://github.com/mattplant/netsuite-ts-sdf-template.git
+  cd netsuite-ts-sdf-template
   ```
 
 - **Install dependencies & enable linting:**
@@ -43,7 +43,7 @@ These steps establish your local environment and authenticate your NetSuite conn
 - **Connect your NetSuite account:**
 
   ```bash
-  suitecloud account:setup
+  yarn setup
   ```
 
 ### VS Code Configuration (Recommended)

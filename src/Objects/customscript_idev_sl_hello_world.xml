@@ -8,10 +8,9 @@
   <scriptfile>[/SuiteScripts/idev-engineering-netsuite/IDEV_SL_HelloWorld.js]</scriptfile>
   <scriptdeployments>
     <scriptdeployment scriptid="customdeploy_idev_sl_hello_world">
-      <allemployees>T</allemployees>
-      <allroles>T</allroles>
+      <allemployees>F</allemployees>
+      <allroles>F</allroles>
       <loglevel>DEBUG</loglevel>
-      <runasrole>ADMINISTRATOR</runasrole>
       <status>TESTING</status>
       <title>IDEV Hello World Suitelet</title>
     </scriptdeployment>

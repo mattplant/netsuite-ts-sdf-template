@@ -1,9 +1,9 @@
 {
-  "name": "engineering-netsuite-template",
+  "name": "netsuite-ts-sdf-template",
   "displayName": "NetSuite TypeScript SDF Project Template",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
-  "description": "The Engineering NetSuite template: A high-integrity foundation for TypeScript-based SuiteScript 2.1 development and deployment.",
+  "description": "A high-integrity foundation for TypeScript-based SuiteScript 2.1 development and deployment via SDF.",
   "keywords": [
     "netsuite",
     "sdf",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattplant/netsuite-typescript-sdf"
+    "url": "https://github.com/mattplant/netsuite-ts-sdf-template"
   },
   "license": "MIT",
   "engines": {
