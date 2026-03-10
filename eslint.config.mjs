@@ -1,5 +1,4 @@
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
+import tseslint from "typescript-eslint";
 import globals from "globals";
 import prettierConfig from "eslint-config-prettier";
 
@@ -24,7 +23,7 @@ export default [
   {
     files: ["src/TypeScripts/**/*.ts"],
     languageOptions: {
-      parser: tsParser,
+      parser: tseslint.parser,
       globals: {
         ...globals.node,
         ...globals.es2020,
@@ -38,13 +37,14 @@ export default [
       }
     },
     plugins: {
-      "@typescript-eslint": tsPlugin
+      "@typescript-eslint": tseslint.plugin
     },
     rules: {
       // Engineering Rigor rules
       "no-unused-vars": "off", // Handled by TS
       "@typescript-eslint/no-unused-vars": ["error"],
-      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-explicit-any": ["error"],
+      "@typescript-eslint/explicit-function-return-type": ["error", { allowExpressions: true }],
       "no-console": "error", // Use NetSuite 'log' module instead
       "eqeqeq": ["error", "always"]
     }

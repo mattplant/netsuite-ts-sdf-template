@@ -64,10 +64,13 @@ src/
   TypeScripts/idev-engineering-netsuite/              # TypeScript source (edit these)
   deploy.xml                                          # SDF deployment manifest
   manifest.xml                                        # SDF project manifest
+eslint.config.mjs                                     # ESLint configuration
 LICENSE                                               # License file
-package.json                                          # Yarn configuration
-suitecloud.config.js                                   # SDF CLI configuration
-tsconfig.json                                          # TypeScript configuration
+package.json                                          # Project dependencies and scripts
+.prettierrc.json                                      # Prettier configuration
+README.md                                             # Project documentation
+suitecloud.config.js                                  # SuiteCloud CLI configuration
+tsconfig.json                                         # TypeScript configuration
 yarn.lock                                             # Yarn lockfile
 ```
 

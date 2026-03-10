@@ -1,12 +1,33 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  "task.allowAutomaticTasks": "on",
+  // Workbench and appearance — Peacock project color
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#fbed80",
+    "activityBar.background": "#fbed80",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#06b9a5",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#fbed80",
+    "statusBar.background": "#f9e64f",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#f7df1e",
+    "statusBarItem.remoteBackground": "#f9e64f",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#f9e64f",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#f9e64f99",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#f9e64f",
 
-  // Prettier - ESLint settings
-  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint", // https://github.com/idahogurl/vs-code-prettier-eslint
-  "editor.formatOnPaste": false, // required
-  "editor.formatOnType": false, // required
-  "editor.formatOnSave": true, // optional
-  "editor.formatOnSaveMode": "file", // required to format on save
-  "files.autoSave": "onFocusChange" // optional but recommended
+  // Editor — Prettier as formatter, ESLint for linting
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.formatOnSaveMode": "file",
+  "files.autoSave": "onFocusChange",
+  "editor.rulers": [100],
 }

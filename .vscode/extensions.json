@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    // Formatting and linting
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    // NetSuite
+    "Oracle.suitecloud-vscode-extension",
+    // Workspace
+    "johnpapa.vscode-peacock" // Peacock for workspace color to distinguish between multiple workspaces
+  ]
+}

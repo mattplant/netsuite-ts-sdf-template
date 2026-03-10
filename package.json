@@ -1,7 +1,7 @@
 {
   "name": "netsuite-ts-sdf-template",
   "displayName": "NetSuite TypeScript SDF Project Template",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "description": "A high-integrity foundation for TypeScript-based SuiteScript 2.1 development and deployment via SDF.",
   "keywords": [
@@ -29,7 +29,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write \"src/**/*.{ts,js,json,xml}\"",
+    "format": "prettier --write \"src/**/*.{ts,json,xml}\" \"*.{mjs,js,json}\"",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",

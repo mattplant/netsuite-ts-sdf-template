@@ -5,7 +5,7 @@
   <name>IDEV Hello World Suitelet</name>
   <notifyadmins>F</notifyadmins>
   <notifyowner>T</notifyowner>
-  <scriptfile>[/SuiteScripts/idev-engineering-netsuite/IDEV_SL_HelloWorld.js]</scriptfile>
+  <scriptfile>[/SuiteScripts/idev-engineering-netsuite/idev_SL_HelloWorld.js]</scriptfile>
   <scriptdeployments>
     <scriptdeployment scriptid="customdeploy_idev_sl_hello_world">
       <allemployees>F</allemployees>
