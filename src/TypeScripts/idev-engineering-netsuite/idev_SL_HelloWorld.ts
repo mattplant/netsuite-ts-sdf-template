@@ -21,7 +21,7 @@
  * @NModuleScope SameAccount
  */
 
-import { EntryPoints } from 'N/types';
+import type { EntryPoints } from 'N/types';
 import * as serverWidget from 'N/ui/serverWidget';
 
 export const onRequest: EntryPoints.Suitelet.onRequest = (

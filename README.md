@@ -1,11 +1,11 @@
 # NetSuite TypeScript SDF Project Template
 
-> **The modern foundation for high-integrity SuiteScript development.** This repository provides a pre-configured, professional-grade Developer Experience (DX) for NetSuite. It bridges the gap between traditional ERP scripting and modern software engineering by combining **TypeScript**, **SuiteCloud Development Framework (SDF)**, and automated **linting/formatting** into a seamless local workflow.
+> **The modern foundation for high-integrity SuiteScript development.** This repository provides a pre-configured, professional-grade Developer Experience (DX) for NetSuite. It bridges the gap between traditional ERP scripting and modern software engineering by combining **TypeScript**, **SuiteCloud Development Framework (SDF)**, and **Biome** into a seamless local workflow.
 
 ## 🚀 Key Features
 
 - **Compile-Time Safety:** Catch API errors and type mismatches in your IDE before they ever reach a NetSuite Sandbox.
-- **Automated DX:** Real-time linting (ESLint) and formatting (Prettier) on save, ensuring code consistency across teams.
+- **Automated DX:** Real-time linting and formatting (Biome) on save, ensuring code consistency across teams.
 - **Infrastructure as Code (IaC):** Leverage SDF to manage your NetSuite objects (Custom Records, Fields, Scripts) via XML within your Git-based workflow.
 - **Modern SuiteScript:** Native support for SuiteScript 2.1 (ES6+) features.
 
@@ -51,8 +51,7 @@ These steps establish your local environment and authenticate your NetSuite conn
 For the intended "Zero Friction" DX, install the following extensions:
 
 - **[SuiteCloud Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Oracle.suitecloud-vscode-extension)** — Essential for SDF integration and account management.
-- **[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)** — Provides real-time feedback on code quality and standard violations.
-- **[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)** — Ensures consistent code style across the entire project.
+- **[Biome](https://marketplace.visualstudio.com/items?itemName=biomejs.biome)** — Provides real-time linting and formatting on save.
 
 **Enable Automatic Tasks:**
 
@@ -68,8 +67,8 @@ This template includes a working Hello World example.
 
 **Files:**
 
-- TypeScript Source: `/src/TypeScripts/idev-engineering-netsuite/IDEV_SL_HelloWorld.ts`
-- Compiled Output: `/src/FileCabinet/SuiteScripts/idev-engineering-netsuite/IDEV_SL_HelloWorld.js` (auto-generated)
+- TypeScript Source: `/src/TypeScripts/idev-engineering-netsuite/idev_SL_HelloWorld.ts`
+- Compiled Output: `/src/FileCabinet/SuiteScripts/idev-engineering-netsuite/idev.js` (auto-generated)
 - Script Record: `/src/Objects/customscript_idev_sl_hello_world.xml` (includes deployment record)
 
 **To Test:**

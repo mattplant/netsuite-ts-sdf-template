@@ -1,8 +1,7 @@
 {
   "recommendations": [
     // Formatting and linting
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
+    "biomejs.biome",
     // NetSuite
     "Oracle.suitecloud-vscode-extension",
     // Workspace

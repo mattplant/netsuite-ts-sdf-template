@@ -7,7 +7,7 @@ This file provides guidance to Claude Code when working with code in this reposi
 ## Project Overview
 
 A professional-grade NetSuite SuiteScript development project combining **TypeScript**,
-**SuiteCloud Development Framework (SDF)**, ESLint, and Prettier. TypeScript source files
+**SuiteCloud Development Framework (SDF)**, and Biome. TypeScript source files
 are transpiled to AMD JavaScript that runs inside NetSuite.
 
 **Requirements:** Node.js 22+, Yarn 1.22.x, Java JDK 21 (for SuiteCloud CLI),
@@ -22,8 +22,7 @@ are transpiled to AMD JavaScript that runs inside NetSuite.
 - **NetSuite API**: SuiteScript 2.1
 - **Type Definitions**: `@hitc/netsuite-types`
 - **Deployment**: SDF CLI (`suitecloud deploy`)
-- **Linting**: ESLint
-- **Formatting**: Prettier
+- **Linting & Formatting**: Biome
 - **Testing**: Jest via `@oracle/suitecloud-unit-testing`
 
 ---
@@ -34,9 +33,9 @@ are transpiled to AMD JavaScript that runs inside NetSuite.
 yarn install          # Install dependencies
 yarn build            # Transpile TypeScript → JavaScript (tsc)
 yarn watch            # Watch mode for continuous transpilation
-yarn lint             # Run ESLint
-yarn lint:fix         # Run ESLint with auto-fix
-yarn format           # Prettier format (src/**/*.{ts,js,json,xml})
+yarn lint             # Run Biome check (lint + format check)
+yarn lint:fix         # Run Biome check with auto-fix
+yarn format           # Biome format (src/TypeScripts/**)
 yarn test             # Run Jest tests (via SuiteCloud unit testing framework)
 yarn deploy           # Build then deploy to NetSuite (yarn build && suitecloud project:deploy)
 yarn setup            # Authenticate with NetSuite account (suitecloud account:setup)
@@ -64,10 +63,9 @@ src/
   TypeScripts/idev-engineering-netsuite/              # TypeScript source (edit these)
   deploy.xml                                          # SDF deployment manifest
   manifest.xml                                        # SDF project manifest
-eslint.config.mjs                                     # ESLint configuration
+biome.json                                            # Biome (lint + format) configuration
 LICENSE                                               # License file
 package.json                                          # Project dependencies and scripts
-.prettierrc.json                                      # Prettier configuration
 README.md                                             # Project documentation
 suitecloud.config.js                                  # SuiteCloud CLI configuration
 tsconfig.json                                         # TypeScript configuration
@@ -91,7 +89,7 @@ Write clean ES imports — `tsc` handles the AMD conversion automatically:
 ```typescript
 import * as log from 'N/log';
 import * as record from 'N/record';
-import { EntryPoints } from 'N/types';
+import type { EntryPoints } from 'N/types';
 ```
 
 ---
@@ -196,11 +194,13 @@ operations.
 
 ### Linting Rules
 
-- **No `console`** — use `N/log` instead
-- **No `any`** — use `@hitc/netsuite-types`; `@typescript-eslint/no-explicit-any` is enforced
+Enforced via Biome (`biome.json`), which only lints `src/TypeScripts/` — transpiled output in `src/FileCabinet/SuiteScripts/` is ignored.
+
+- **No `console`** — use `N/log` instead (`suspicious/noConsole`)
+- **No `any`** — use `@hitc/netsuite-types` (`suspicious/noExplicitAny`)
 - **Strict mode** — enabled in tsconfig; honor it
-- **Strict equality** — `eqeqeq` enforced
-- ESLint only lints `src/TypeScripts/` — transpiled output in `src/FileCabinet/SuiteScripts/` is ignored
+- **Strict equality** — `===` enforced (`suspicious/noDoubleEquals`)
+- **Explicit return types** — no Biome equivalent; enforced partially via `noImplicitReturns` in tsconfig and code review
 
 ### Logging
 
