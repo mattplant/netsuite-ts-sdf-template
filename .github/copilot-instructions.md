@@ -7,7 +7,7 @@ This file provides guidance to GitHub Copilot when working with code in this rep
 ## Project Overview
 
 A professional-grade NetSuite SuiteScript development project combining **TypeScript**,
-**SuiteCloud Development Framework (SDF)**, ESLint, and Prettier. TypeScript source files
+**SuiteCloud Development Framework (SDF)**, and Biome. TypeScript source files
 are transpiled to AMD JavaScript that runs inside NetSuite.
 
 **Requirements:** Node.js 22+, Yarn 1.22.x, Java JDK 21 (for SuiteCloud CLI),
@@ -22,8 +22,7 @@ are transpiled to AMD JavaScript that runs inside NetSuite.
 - **NetSuite API**: SuiteScript 2.1
 - **Type Definitions**: `@hitc/netsuite-types`
 - **Deployment**: SDF CLI (`suitecloud deploy`)
-- **Linting**: ESLint
-- **Formatting**: Prettier
+- **Linting & Formatting**: Biome
 - **Testing**: Jest via `@oracle/suitecloud-unit-testing`
 
 ---
@@ -42,6 +41,7 @@ src/
   TypeScripts/idev-engineering-netsuite/              # TypeScript source (edit these)
   deploy.xml                                          # SDF deployment manifest
   manifest.xml                                        # SDF project manifest
+biome.json                                            # Biome (lint + format) configuration
 LICENSE                                               # License file
 package.json                                          # Yarn configuration
 suitecloud.config.js                                   # SDF CLI configuration
@@ -62,7 +62,7 @@ Write clean ES imports — `tsc` handles the AMD conversion automatically:
 ```typescript
 import * as log from 'N/log';
 import * as record from 'N/record';
-import { EntryPoints } from 'N/types';
+import type { EntryPoints } from 'N/types';
 ```
 
 ---
@@ -160,11 +160,13 @@ yarn setup
 
 ### Linting Rules
 
-- **No `console`** — use `N/log` instead
-- **No `any`** — use `@hitc/netsuite-types`; `@typescript-eslint/no-explicit-any` is enforced
+Enforced via Biome (`biome.json`), which only lints `src/TypeScripts/` — transpiled output in `src/FileCabinet/SuiteScripts/` is ignored.
+
+- **No `console`** — use `N/log` instead (`suspicious/noConsole`)
+- **No `any`** — use `@hitc/netsuite-types` (`suspicious/noExplicitAny`)
 - **Strict mode** — enabled in tsconfig; honor it
-- **Strict equality** — `eqeqeq` enforced
-- ESLint only lints `src/TypeScripts/` — transpiled output in `src/FileCabinet/SuiteScripts/` is ignored
+- **Strict equality** — `===` enforced (`suspicious/noDoubleEquals`)
+- **Explicit return types** — no Biome equivalent; enforced partially via `noImplicitReturns` in tsconfig and code review
 
 ### Logging
 
